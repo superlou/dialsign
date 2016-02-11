@@ -86,6 +86,19 @@ export default Ember.Component.extend({
 
             feature_g.add(tick);
           }
+        } else if (feature.type == "ring") {
+          var ring = s.circle(0, 0, feature.diameter);
+
+          if (feature.fill) {
+            ring.attr({
+              stroke: feature.fill,
+              fill: '#000',
+              'fill-opacity': 0,
+              'stroke-width': feature.thickness
+            });
+          }
+
+          feature_g.add(ring);
         }
 
         ring_g.add(feature_g);

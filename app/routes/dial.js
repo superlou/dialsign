@@ -12,7 +12,7 @@ export default Ember.Route.extend({
           features: [
             {
               type: 'radial',
-              diameter: 1.0,
+              diameter: 0.96,
               shape: 'dot',
               dot_diameter: 0.01,
               count: 60,
@@ -29,11 +29,32 @@ export default Ember.Route.extend({
               skip: '%3'
             },
             {
+              type: 'ring',
+              diameter: 1.03,
+              thickness: 0.02,
+              fill: '#fff'
+            },
+            {
+              type: 'ring',
+              diameter: 0.88,
+              thickness: 0.02,
+              fill: '#fff'
+            },
+            {
               type: 'radial',
-              diameter: 1.0,
-              dot_diameter: 0.06,
+              diameter: 0.96,
+              dot_diameter: 0.04,
               count: 4,
-              fill: '#f00'
+              fill: '#48F',
+              skip: '3'
+            },
+            {
+              type: 'radial',
+              diameter: 0.96,
+              dot_diameter: 0.04,
+              count: 4,
+              fill: '#fff',
+              skip: '0,1,2'
             }
           ]
         }
