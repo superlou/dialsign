@@ -11,21 +11,24 @@ export default Ember.Route.extend({
           center: [0, 0],
           features: [
             {
-              type: 'dot',
+              type: 'radial',
               diameter: 1.0,
+              shape: 'dot',
               dot_diameter: 0.01,
               count: 60,
               fill: '#fff'
             },
             {
-              type: 'dot',
-              diameter: 1.0,
-              dot_diameter: 0.05,
+              type: 'radial',
+              diameter: 0.97,
+              shape: 'tick',
+              tick_width: 0.04,
+              tick_length: 0.1,
               count: 12,
               fill: '#fff'
             },
             {
-              type: 'dot',
+              type: 'radial',
               diameter: 1.0,
               dot_diameter: 0.06,
               count: 4,

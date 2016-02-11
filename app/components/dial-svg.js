@@ -17,6 +17,7 @@ export default Ember.Component.extend({
   }),
 
   update: Ember.observer('value', function() {
+    this.get('paper').clear();
     this.draw(
       this.get('paper'),
       this.get('value'),
@@ -60,17 +61,27 @@ export default Ember.Component.extend({
         var feature_g = s.g();
         feature_g.addClass('feature');
 
-        if (feature.type == "dot") {
+        if (feature.type == "radial") {
           for(var i = 0; i < feature.count; i++) {
-            var dot = s.circle(0, 0, feature.dot_diameter);
-            var angle = 360.0 / feature.count * i;
-            dot.transform("T" + feature.diameter + " 0 R" + angle + " 0 0");
 
-            if (feature.fill) {
-              dot.attr({fill: feature.fill})
+            if (feature.shape == 'tick') {
+              var x = -feature.tick_length / 2.0;
+              var y = -feature.tick_width / 2.0;
+              var width = feature.tick_length;
+              var height = feature.tick_width;
+              var tick = s.rect(x, y, width, height);
+            } else {
+              var tick = s.circle(0, 0, feature.dot_diameter);
             }
 
-            feature_g.add(dot);
+            var angle = 360.0 / feature.count * i;
+            tick.transform("T" + feature.diameter + " 0 R" + angle + " 0 0");
+
+            if (feature.fill) {
+              tick.attr({fill: feature.fill})
+            }
+
+            feature_g.add(tick);
           }
         }
 
