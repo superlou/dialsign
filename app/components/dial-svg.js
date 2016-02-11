@@ -43,14 +43,22 @@ export default Ember.Component.extend({
   draw: function(s, value, width, height, scale) {
     // Dial
     var dial = s.circle(0, 0, value.diameter);
-    var dial_g = s.g(dial);
-    dial_g.addClass('dial');
 
     if (value.fill) {
       dial.attr({
         fill: value.fill
       });
     }
+
+    // Snap filters don't work do to bug #325
+    var dial_shadow = s.circle(0, 0.03, value.diameter * 1.02).attr({
+      'fill-opacity': 0.1,
+    });
+
+    var dial_g = s.g();
+    dial_g.add(dial_shadow);
+    dial_g.add(dial);
+    dial_g.addClass('dial');
 
     // dial.transform(transform);
     var rings = value.rings.forEach((ring) => {

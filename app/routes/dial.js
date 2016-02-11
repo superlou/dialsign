@@ -4,7 +4,7 @@ export default Ember.Route.extend({
   model: function(params) {
     return {
       diameter: 1.12,
-      fill: '#222',
+      fill: '#000',
 
       rings: [
         {
