@@ -63,6 +63,9 @@ export default Ember.Component.extend({
 
         if (feature.type == "radial") {
           for(var i = 0; i < feature.count; i++) {
+            if (feature.skip && this.skip(feature.skip, i)) {
+              continue;
+            }
 
             if (feature.shape == 'tick') {
               var x = -feature.tick_length / 2.0;
@@ -94,5 +97,23 @@ export default Ember.Component.extend({
     // Scale and translate everything
     var transform = "t" + width/2 + " " + height/2 + " s" + scale + " " + scale;
     dial_g.transform(transform);
+  },
+
+  skip: function(skip_string, i) {
+    var patterns = skip_string.split(',');
+
+    var match = patterns.find(function(pattern) {
+      if (pattern[0] == '%') {
+        var mod = parseInt(pattern.substr(1, pattern.length));
+        if (!(i % mod)) { return true; }
+      } else {
+        var position = parseInt(pattern);
+        if (i == position) { return true; }
+      }
+
+      return false;
+    });
+
+    if (match) { return true; } else { return false; }
   }
 });

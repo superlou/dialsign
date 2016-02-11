@@ -20,12 +20,13 @@ export default Ember.Route.extend({
             },
             {
               type: 'radial',
-              diameter: 0.97,
+              diameter: 0.95,
               shape: 'tick',
               tick_width: 0.04,
-              tick_length: 0.1,
+              tick_length: 0.14,
               count: 12,
-              fill: '#fff'
+              fill: '#fff',
+              skip: '%3'
             },
             {
               type: 'radial',
