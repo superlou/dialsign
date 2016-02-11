@@ -55,6 +55,14 @@ export default Ember.Route.extend({
               count: 4,
               fill: '#fff',
               skip: '0,1,2'
+            },
+            {
+              type: 'text',
+              string: 'Watch',
+              position: [0, 0.1],
+              font: 'arial',
+              size: 0.15,
+              fill: '#fff'
             }
           ]
         }

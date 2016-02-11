@@ -89,16 +89,27 @@ export default Ember.Component.extend({
         } else if (feature.type == "ring") {
           var ring = s.circle(0, 0, feature.diameter);
 
-          if (feature.fill) {
-            ring.attr({
-              stroke: feature.fill,
-              fill: '#000',
-              'fill-opacity': 0,
-              'stroke-width': feature.thickness
-            });
-          }
+          ring.attr({
+            stroke: feature.fill,
+            fill: '#000',
+            'fill-opacity': 0,
+            'stroke-width': feature.thickness
+          });
 
           feature_g.add(ring);
+        } else if (feature.type == "text") {
+          var text = s.text(feature.position[0],
+                            -feature.position[1],
+                            feature.string);
+
+          text.attr({
+            fill: feature.fill || '#000',
+            'font-family': feature.font || 'sans-serif',
+            'font-size': feature.size || 0.01,
+            'text-anchor': feature.align || 'middle'
+          });
+
+          feature_g.add(text);
         }
 
         ring_g.add(feature_g);
