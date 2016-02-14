@@ -9,7 +9,6 @@ export default Ember.Route.extend({
 
       rings: [
         {
-          center: [0, 0],
           features: [
             {
               type: 'radial',

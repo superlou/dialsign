@@ -60,7 +60,10 @@ export default Ember.Component.extend({
     var rings = value.rings.forEach((ring) => {
       var ring_g = s.g();
       ring_g.addClass('ring');
-      ring_g.transform("T" + ring.center[0] + " " + -1*ring.center[1]);
+
+      if (ring.center) {
+        ring_g.transform("T" + ring.center[0] + " " + -1*ring.center[1]);  
+      }
 
       var features = ring.features.forEach((feature) => {
         var feature_g = s.g();
