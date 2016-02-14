@@ -26,6 +26,17 @@ export default Ember.Route.extend({
               font: 'arial',
               size: 0.15,
               fill: '#fff'
+            },
+            {
+              type: 'radial',
+              diameter: 0.82,
+              shape: 'numeral',
+              size: 0.15,
+              count: 12,
+              fill: '#fff',
+              skip: '6',
+              format: 'I-12',
+              font: 'times new roman'
             }
           ]
         },
@@ -46,6 +57,25 @@ export default Ember.Route.extend({
               tick_length: 0.06,
               count: 6,
               fill: '#fff'
+            },
+            {
+              type: 'radial',
+              diameter: 0.28,
+              shape: 'tick',
+              tick_width: 0.01,
+              tick_length: 0.04,
+              count: 30,
+              fill: '#fff'
+            },
+            {
+              type: 'radial',
+              diameter: 0.15,
+              shape: 'numeral',
+              size: 0.1,
+              count: 3,
+              fill: '#fff',
+              format: '1-60-20',
+              orientation: 'flat'
             }
           ]
         }

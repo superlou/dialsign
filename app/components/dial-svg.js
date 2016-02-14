@@ -1,6 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
+  numerals: Ember.inject.service('numerals'),
   tagName: 'svg',
   attributeBindings: ['width', 'height'],
   width: '300',
@@ -72,22 +73,36 @@ export default Ember.Component.extend({
               continue;
             }
 
+            var angle = 360.0 / feature.count * i - 90;
+            var transform = "";
+
             if (feature.shape == 'tick') {
               var x = -feature.tick_length / 2.0;
               var y = -feature.tick_width / 2.0;
               var width = feature.tick_length;
               var height = feature.tick_width;
               var tick = s.rect(x, y, width, height);
+              transform = "T" + feature.diameter + " 0 R" + angle + " 0 0";
+            } else if (feature.shape == 'numeral') {
+              var numeral = this.get('numerals').numerize(i, feature.format);
+              var tick = s.text(0, 0, numeral);
+              tick.attr({
+                'font-family': feature.font || 'sans-serif',
+                'font-size': feature.size || 0.01,
+                'text-anchor': 'middle',
+                'dominant-baseline': 'middle'
+              });
+              transform = "R90 0 0 T" + feature.diameter + " 0 R" + angle + " 0 0";
+              if (feature.orientation == 'flat') {
+                transform += "r" + (-1*angle-90) + " 0 0";
+              }
             } else {
               var tick = s.circle(0, 0, feature.dot_diameter);
+              transform = "T" + feature.diameter + " 0 R" + angle + " 0 0";
             }
 
-            var angle = 360.0 / feature.count * i;
-            tick.transform("T" + feature.diameter + " 0 R" + angle + " 0 0");
-
-            if (feature.fill) {
-              tick.attr({fill: feature.fill})
-            }
+            tick.transform(transform);
+            tick.attr({fill: feature.fill || '#000'})
 
             feature_g.add(tick);
           }
