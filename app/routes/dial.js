@@ -4,7 +4,8 @@ export default Ember.Route.extend({
   model: function(params) {
     return {
       diameter: 1.12,
-      fill: '#000',
+      dial_fill: '#000',
+      default_fill: '#fff',
 
       rings: [
         {
@@ -16,16 +17,14 @@ export default Ember.Route.extend({
               shape: 'tick',
               tick_width: 0.04,
               tick_length: 0.12,
-              count: 12,
-              fill: '#fff'
+              count: 12
             },
             {
               type: 'text',
               string: 'Watch',
               position: [0, 0.4],
               font: 'arial',
-              size: 0.15,
-              fill: '#fff'
+              size: 0.15
             },
             {
               type: 'radial',
@@ -33,7 +32,6 @@ export default Ember.Route.extend({
               shape: 'numeral',
               size: 0.15,
               count: 12,
-              fill: '#fff',
               skip: '6',
               format: 'I-12',
               font: 'times new roman'
@@ -46,7 +44,6 @@ export default Ember.Route.extend({
             {
               type: 'ring',
               diameter: 0.3,
-              fill: '#fff',
               thickness: 0.02
             },
             {
@@ -55,8 +52,7 @@ export default Ember.Route.extend({
               shape: 'tick',
               tick_width: 0.04,
               tick_length: 0.06,
-              count: 6,
-              fill: '#fff'
+              count: 6
             },
             {
               type: 'radial',
@@ -64,8 +60,7 @@ export default Ember.Route.extend({
               shape: 'tick',
               tick_width: 0.01,
               tick_length: 0.04,
-              count: 30,
-              fill: '#fff'
+              count: 30
             },
             {
               type: 'radial',
@@ -73,7 +68,6 @@ export default Ember.Route.extend({
               shape: 'numeral',
               size: 0.1,
               count: 3,
-              fill: '#fff',
               format: '1-60-20',
               orientation: 'flat'
             }

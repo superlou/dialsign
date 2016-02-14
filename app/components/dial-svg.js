@@ -46,18 +46,17 @@ export default Ember.Component.extend({
     var dial = s.circle(0, 0, value.diameter);
     var f = s.filter(Snap.filter.shadow(0, 0.05, 0.1, '#000', 0.2));
 
-    if (value.fill) {
-      dial.attr({
-        fill: value.fill,
-        filter: f
-      });
-    }
+    dial.attr({
+      fill: value.dial_fill || '#000',
+      filter: f
+    });
+
+    var default_fill = value.default_fill || '#fff';
 
     var dial_g = s.g();
     dial_g.add(dial);
     dial_g.addClass('dial');
 
-    // dial.transform(transform);
     var rings = value.rings.forEach((ring) => {
       var ring_g = s.g();
       ring_g.addClass('ring');
@@ -102,7 +101,7 @@ export default Ember.Component.extend({
             }
 
             tick.transform(transform);
-            tick.attr({fill: feature.fill || '#000'})
+            tick.attr({fill: feature.fill || default_fill})
 
             feature_g.add(tick);
           }
@@ -110,8 +109,7 @@ export default Ember.Component.extend({
           var ring = s.circle(0, 0, feature.diameter);
 
           ring.attr({
-            stroke: feature.fill,
-            fill: '#000',
+            stroke: feature.fill || default_fill,
             'fill-opacity': 0,
             'stroke-width': feature.thickness
           });
@@ -123,7 +121,7 @@ export default Ember.Component.extend({
                             feature.string);
 
           text.attr({
-            fill: feature.fill || '#000',
+            fill: feature.fill || default_fill,
             'font-family': feature.font || 'sans-serif',
             'font-size': feature.size || 0.01,
             'text-anchor': feature.align || 'middle'
