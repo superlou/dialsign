@@ -6,7 +6,7 @@ export default Ember.Component.extend({
   attributeBindings: ['width', 'height'],
   width: '300',
   height: '300',
-  scale: 100,  // pixels per inch
+  scale: 4,  // pixels per mm
   paper: undefined,
 
   center_x: Ember.computed('width', function() {
@@ -62,7 +62,7 @@ export default Ember.Component.extend({
       ring_g.addClass('ring');
 
       if (ring.center) {
-        ring_g.transform("T" + ring.center[0] + " " + -1*ring.center[1]);  
+        ring_g.transform("T" + ring.center[0] + " " + -1*ring.center[1]);
       }
 
       var features = ring.features.forEach((feature) => {

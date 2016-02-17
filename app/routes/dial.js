@@ -3,7 +3,7 @@ import Ember from 'ember';
 export default Ember.Route.extend({
   model: function(params) {
     return {
-      diameter: 1.12,
+      diameter: 28.5,
       dial_fill: '#000',
       default_fill: '#fff',
 
@@ -12,24 +12,24 @@ export default Ember.Route.extend({
           features: [
             {
               type: 'radial',
-              diameter: 1,
+              diameter: 26,
               shape: 'tick',
-              tick_width: 0.04,
-              tick_length: 0.12,
+              tick_width: 1,
+              tick_length: 3,
               count: 12
             },
             {
               type: 'text',
               string: 'Watch',
-              position: [0, 0.4],
+              position: [0, 10],
               font: 'arial',
-              size: 0.15
+              size: 3.8
             },
             {
               type: 'radial',
-              diameter: 0.82,
+              diameter: 21,
               shape: 'numeral',
-              size: 0.15,
+              size: 4,
               count: 12,
               skip: '6',
               format: 'I-12',
@@ -38,34 +38,34 @@ export default Ember.Route.extend({
           ]
         },
         {
-          center: [0, -0.5],
+          center: [0, -13],
           features: [
             {
               type: 'ring',
-              diameter: 0.3,
-              thickness: 0.02
+              diameter: 7.5,
+              thickness: 0.5
             },
             {
               type: 'radial',
-              diameter: 0.26,
+              diameter: 6.6,
               shape: 'tick',
-              tick_width: 0.04,
-              tick_length: 0.06,
+              tick_width: 1,
+              tick_length: 1.5,
               count: 6
             },
             {
               type: 'radial',
-              diameter: 0.28,
+              diameter: 7,
               shape: 'tick',
-              tick_width: 0.01,
-              tick_length: 0.04,
+              tick_width: 0.25,
+              tick_length: 1,
               count: 30
             },
             {
               type: 'radial',
-              diameter: 0.15,
+              diameter: 3.8,
               shape: 'numeral',
-              size: 0.1,
+              size: 2.5,
               count: 3,
               format: '1-60-20',
               orientation: 'flat'
