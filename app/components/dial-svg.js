@@ -44,7 +44,7 @@ export default Ember.Component.extend({
   draw: function(s, value, width, height, scale) {
     // Dial
     var dial = s.circle(0, 0, value.diameter);
-    var f = s.filter(Snap.filter.shadow(0, 0.05, 0.1, '#000', 0.2));
+    var f = s.filter(Snap.filter.shadow(0, 2, 2, '#000', 0.2));
 
     dial.attr({
       fill: value.dial_fill || '#000',
