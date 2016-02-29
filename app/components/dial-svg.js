@@ -82,6 +82,12 @@ export default Ember.Component.extend({
               var height = feature.tick_width;
               var tick = s.rect(x, y, width, height);
               transform = "T" + feature.diameter + " 0 R" + angle + " 0 0";
+            } else if (feature.shape == 'triangle') {
+              var base = feature.triangle_base;
+              var height = feature.triangle_height;
+
+              var tick = s.polygon(height/2, -base/2, height/2, base/2, -height/2, 0);
+              transform = "T" + feature.diameter + " 0 R" + angle + " 0 0";
             } else if (feature.shape == 'numeral') {
               var numeral = this.get('numerals').numerize(i, feature.format);
               var tick = s.text(0, 0, numeral);
@@ -123,7 +129,7 @@ export default Ember.Component.extend({
           text.attr({
             fill: feature.fill || default_fill,
             'font-family': feature.font || 'sans-serif',
-            'font-size': feature.size || 0.01,
+            'font-size': feature.size || 3,
             'text-anchor': feature.align || 'middle'
           });
 

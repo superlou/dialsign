@@ -1,0 +1,63 @@
+{
+  "diameter": 28.5,
+  "dial_fill": "#000",
+  "default_fill": "#fff",
+
+  "rings": [
+    {
+      "features": [
+        {
+          "type": "radial",
+          "diameter": 21,
+          "shape": "tick",
+          "tick_width": 3,
+          "tick_length": 8,
+          "count": 4,
+          "skip": "0"
+        },
+        {
+          "type": "radial",
+          "diameter": 27,
+          "shape": "tick",
+          "tick_width": 0.2,
+          "tick_length": 2,
+          "count": 60
+        },
+        {
+          "type": "radial",
+          "diameter": 23,
+          "shape": "dot",
+          "dot_diameter": 2.2,
+          "count": 12,
+          "skip": "0,3,6,9"
+        },
+        {
+          "type": "radial",
+          "diameter": 21,
+          "shape": "triangle",
+          "triangle_base": 7,
+          "triangle_height": 8,
+          "count": 1
+        },
+        {
+          "type": "text",
+          "string": "SUBMARINER",
+          "position": [0, -8],
+          "size": 3
+        },
+        {
+          "type": "text",
+          "string": "1000 ft = 300 m",
+          "position": [0, -10.4],
+          "size": 1.7
+        },
+        {
+          "type": "text",
+          "string": "SUPERCOOL CHRONOMETER",
+          "position": [0, -12.8],
+          "size": 1.7
+        }
+      ]
+    }
+  ]
+}
