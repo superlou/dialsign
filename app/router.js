@@ -6,7 +6,7 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.route('dial');
+  this.route('dial', {path: '/dial/:dial_id'});
 });
 
 export default Router;

@@ -1,1 +1,5 @@
-{{outlet}}
+<ul>
+  {{#each model as |dial|}}
+    <li>{{link-to dial.name 'dial' dial.id}}</li>
+  {{/each}}
+</ul>

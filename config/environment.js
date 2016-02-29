@@ -4,7 +4,7 @@ module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'dialsign',
     environment: environment,
-    // baseURL: '/',
+    baseURL: '/',  // Can't comment this out because it breaks dynamic routes
     locationType: 'auto',
     EmberENV: {
       FEATURES: {
