@@ -26,19 +26,16 @@ export default Ember.Component.extend({
       this.get('height'),
       this.get('scale')
     );
+
+    var serializer = new XMLSerializer();
+    var svgXml = serializer.serializeToString(this.$()[0]);
+    this.sendAction('svgChanged', svgXml);
   }),
 
   didInsertElement: function() {
     var s = Snap('#' + this.$().attr('id'));
     this.set('paper', s);
-
-    this.draw(
-      s,
-      this.get('value'),
-      this.get('width'),
-      this.get('height'),
-      this.get('scale')
-    );
+    this.update();
   },
 
   draw: function(s, value, width, height, scale) {

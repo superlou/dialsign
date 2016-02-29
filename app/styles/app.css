@@ -6,3 +6,8 @@
   width: 50%;
   float: right;
 }
+
+.download {
+  position: absolute;
+  bottom: 12px;
+}

@@ -1,5 +1,7 @@
 <h1>Dial</h1>
-
-{{dial-svg value=model}}
-
+{{dial-svg value=model svgChanged='svgChanged'}}
 {{json-editor json=model mode='code'}}
+
+<div class='download'>
+  {{#svg-xml-download data=svgXml}}Download SVG{{/svg-xml-download}}
+</div>
