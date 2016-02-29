@@ -4,9 +4,9 @@ export default Ember.Component.extend({
   numerals: Ember.inject.service('numerals'),
   tagName: 'svg',
   attributeBindings: ['width', 'height'],
-  width: '300',
-  height: '300',
-  scale: 4,  // pixels per mm
+  width: '400',
+  height: '400',
+  scale: 5,  // pixels per mm
   paper: undefined,
 
   center_x: Ember.computed('width', function() {
