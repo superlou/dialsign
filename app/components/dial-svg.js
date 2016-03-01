@@ -35,7 +35,7 @@ export default Ember.Component.extend({
   didInsertElement: function() {
     var s = Snap('#' + this.$().attr('id'));
     this.set('paper', s);
-    this.update();
+    Ember.run.scheduleOnce('afterRender', this, 'update');
   },
 
   draw: function(s, value, width, height, scale) {
