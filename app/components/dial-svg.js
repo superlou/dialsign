@@ -17,7 +17,7 @@ export default Ember.Component.extend({
     return this.get('height') / 2;
   }),
 
-  update: Ember.observer('value', function() {
+  update: Ember.observer('value', function(clear=true) {
     this.get('paper').clear();
     this.draw(
       this.get('paper'),
