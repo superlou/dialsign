@@ -10,8 +10,8 @@
           "type": "radial",
           "diameter": 21,
           "shape": "tick",
-          "tick_width": 3,
-          "tick_length": 8,
+          "tick_width": 1.5,
+          "tick_length": 4,
           "count": 4,
           "skip": "0"
         },
@@ -19,8 +19,8 @@
           "type": "radial",
           "diameter": 21,
           "shape": "tick",
-          "tick_width": 2,
-          "tick_length": 7,
+          "tick_width": 1,
+          "tick_length": 3.5,
           "count": 4,
           "skip": "0",
           "fill": "#ffb"
@@ -30,7 +30,7 @@
           "diameter": 27,
           "shape": "tick",
           "tick_width": 0.2,
-          "tick_length": 2,
+          "tick_length": 1.5,
           "count": 60
         },
         {
@@ -54,36 +54,36 @@
           "type": "radial",
           "diameter": 21,
           "shape": "triangle",
-          "triangle_base": 7,
-          "triangle_height": 8,
+          "triangle_base": 3.5,
+          "triangle_height": 4,
           "count": 1
         },
         {
           "type": "radial",
-          "diameter": 21.4,
+          "diameter": 21.2,
           "shape": "triangle",
-          "triangle_base": 5,
-          "triangle_height": 6,
+          "triangle_base": 2.5,
+          "triangle_height": 3,
           "count": 1,
           "fill": "#ffb"
         },
         {
           "type": "text",
           "string": "LOWBOATMAN",
-          "position": [0, -8],
-          "size": 3
+          "position": [0, -4],
+          "size": 1.5
         },
         {
           "type": "text",
           "string": "1000 ft = 300 m",
-          "position": [0, -10.4],
-          "size": 1.7
+          "position": [0, -5.5],
+          "size": 1
         },
         {
           "type": "text",
           "string": "SUPERCOOL CHRONOMETER",
-          "position": [0, -12.8],
-          "size": 1.7
+          "position": [0, -7],
+          "size": 1
         }
       ]
     }

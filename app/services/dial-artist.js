@@ -4,9 +4,14 @@ export default Ember.Service.extend({
   numerals: Ember.inject.service('numerals'),
 
   draw: function(s, value, width, height, scale) {
-    // Dial
-    var dial = s.circle(0, 0, value.diameter);
+    // Fixes viewbox to 40x40 mm
+    s.attr({
+      viewBox: "-20, -20, 40, 40"
+    });
+
+    var dial = s.circle(0, 0, value.diameter/2);
     var f = s.filter(Snap.filter.shadow(0, 2, 2, '#000', 0.2));
+    f.attr({x: "-100%", y: "-100%", width: "200%", height: "200%"})
 
     dial.attr({
       fill: value.dial_fill || '#000',
@@ -35,10 +40,6 @@ export default Ember.Service.extend({
 
       dial_g.add(ring_g);
     });
-
-    // Scale and translate everything
-    var transform = "t" + width/2 + " " + height/2 + " s" + scale + " " + scale;
-    dial_g.transform(transform);
   },
 
   buildFeature: function(s, feature, defaults) {
@@ -71,13 +72,13 @@ export default Ember.Service.extend({
         var width = feature.tick_length;
         var height = feature.tick_width;
         var tick = s.rect(x, y, width, height);
-        transform = "T" + feature.diameter + " 0 R" + angle + " 0 0";
+        transform = "T" + feature.diameter/2 + " 0 R" + angle + " 0 0";
       } else if (feature.shape == 'triangle') {
         var base = feature.triangle_base;
         var height = feature.triangle_height;
 
         var tick = s.polygon(height/2, -base/2, height/2, base/2, -height/2, 0);
-        transform = "T" + feature.diameter + " 0 R" + angle + " 0 0";
+        transform = "T" + feature.diameter/2 + " 0 R" + angle + " 0 0";
       } else if (feature.shape == 'numeral') {
         var numeral = this.get('numerals').numerize(i, feature.format);
         var tick = s.text(0, 0, numeral);
@@ -87,13 +88,13 @@ export default Ember.Service.extend({
           'text-anchor': 'middle',
           'dominant-baseline': 'middle'
         });
-        transform = "R90 0 0 T" + feature.diameter + " 0 R" + angle + " 0 0";
+        transform = "R90 0 0 T" + feature.diameter/2 + " 0 R" + angle + " 0 0";
         if (feature.orientation == 'flat') {
           transform += "r" + (-1*angle-90) + " 0 0";
         }
       } else {
-        var tick = s.circle(0, 0, feature.dot_diameter);
-        transform = "T" + feature.diameter + " 0 R" + angle + " 0 0";
+        var tick = s.circle(0, 0, feature.dot_diameter/2);
+        transform = "T" + feature.diameter/2 + " 0 R" + angle + " 0 0";
       }
 
       tick.transform(transform);
@@ -107,7 +108,7 @@ export default Ember.Service.extend({
 
   buildFeatureRing: function(s, feature, defaults) {
     var group = s.g();
-    var ring = s.circle(0, 0, feature.diameter);
+    var ring = s.circle(0, 0, feature.diameter/2);
 
     ring.attr({
       stroke: feature.fill || defaults.fill,

@@ -10,22 +10,22 @@
           "type": "radial",
           "diameter": 26,
           "shape": "tick",
-          "tick_width": 1,
-          "tick_length": 3,
+          "tick_width": 0.8,
+          "tick_length": 2,
           "count": 12
         },
         {
           "type": "text",
           "string": "Watch",
-          "position": [0, 10],
+          "position": [0, 3.2],
           "font": "arial",
-          "size": 3.8
+          "size": 2.5
         },
         {
           "type": "radial",
-          "diameter": 21,
+          "diameter": 20,
           "shape": "numeral",
-          "size": 4,
+          "size": 2.5,
           "count": 12,
           "skip": "6",
           "format": "I-12",
@@ -34,19 +34,19 @@
       ]
     },
     {
-      "center": [0, -13],
+      "center": [0, -6],
       "features": [
         {
           "type": "ring",
-          "diameter": 7.5,
-          "thickness": 0.5
+          "diameter": 7.7,
+          "thickness": 0.4
         },
         {
           "type": "radial",
           "diameter": 6.6,
           "shape": "tick",
-          "tick_width": 1,
-          "tick_length": 1.5,
+          "tick_width": 0.5,
+          "tick_length": 1.3,
           "count": 6
         },
         {
@@ -59,9 +59,9 @@
         },
         {
           "type": "radial",
-          "diameter": 3.8,
+          "diameter": 3.2,
           "shape": "numeral",
-          "size": 2.5,
+          "size": 1.4,
           "count": 3,
           "format": "1-60-20",
           "orientation": "flat"
